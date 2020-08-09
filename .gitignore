@@ -1,0 +1,14 @@
+#Go binaries and vasm assembler folders
+vasm
+bin
+
+#Assembly/executables
+*.out
+*.bin
+*.exe
+*.s
+*.S
+*.asm
+
+#Editor settings
+.vscode
