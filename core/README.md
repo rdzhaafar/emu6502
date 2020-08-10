@@ -9,7 +9,7 @@ import "github.com/rdzhaafar/emu6502/core"
 Initialize the system bus and write the program to it. For this example, we're going to write 
 
 ```asm
-    LDA #09 ;load the accumulator with "88"
+    LDA #88 ;load the accumulator with "88"
 ```
 
 which, translated to 6502 machine code is

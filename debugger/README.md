@@ -19,7 +19,7 @@ to launch an interactive debugging shell. You can also run
 go run . --file a.out
 ```
 
-in order to load an assembled 6502 program to RAM. In order to assemble W65C02 binaries I recommend using [vasm](http://sun.hasenbraten.de/vasm/) assembler with `--wdc02` and `--Fbin` options.
+in order to load an assembled 6502 program to RAM. I recommend using [vasm](http://sun.hasenbraten.de/vasm/) assembler with `--wdc02` and `--Fbin` options to assemble W65C02S binaries.
 
 >NOTE: If you want to compile and install the debugger to your computer permanently, read the [go install documentation](https://golang.org/cmd/go/). 
 
