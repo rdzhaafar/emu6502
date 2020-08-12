@@ -62,6 +62,9 @@ func (shell *interactiveShell) handleCommand(cmd *shellCommand) bool {
 		return false
 	case "exit":
 		return true
+	case "help":
+		shell.helpCmd(cmd)
+		return false
 	default:
 		shell.invalidCmd(cmd.command)
 		return false
@@ -130,6 +133,27 @@ func (shell *interactiveShell) printCmd(cmd *shellCommand) {
 
 	default:
 		shell.invalidArgs(cmd.command, args)
+	}
+}
+
+func (shell *interactiveShell) helpCmd(cmd *shellCommand) {
+	switch len(cmd.args) {
+	case 0:
+		fmt.Println("Interactive shell commands:")
+		fmt.Println("1. step -> steps the cpu through one instruction")
+		fmt.Println("2. print -> prints the contents of cpu registers or the bus")
+		fmt.Println("\t\"print registers\" prints the contents of cpu registers")
+		fmt.Println("\t\"print bus X\" prints the contents of the bus at address X")
+		fmt.Println("\t\"print bus X Y\" prints the contents of the bus from address X to Y")
+		fmt.Println("3. set -> sets the registers/bus to the specified value")
+		fmt.Println("\t\"set (a, p, x, y, pc, sp) X\" sets the the specified register to X")
+		fmt.Println("\t\"set bus X Y\" sets the bus at address X to Y")
+		fmt.Println("4. load -> loads a binary file to the bus for debugging")
+		fmt.Println("\t\"load X\" loads file X (where X is either an absolute path, or a relative path)")
+		fmt.Println("5. help -> prints this help message")
+		fmt.Println("6. exit -> exits the interactive shell")
+	default:
+		shell.invalidArgs(cmd.command, cmd.args)
 	}
 }
 
@@ -247,7 +271,7 @@ func (shell *interactiveShell) loadCmd(cmd *shellCommand) {
 	case 1:
 		err := shell.loadFile(args[0])
 		if err != nil {
-			shell.printError(cmd.command, fmt.Sprintf("Could not load file %v.\n", args[1]))
+			shell.printError(cmd.command, fmt.Sprintf("Could not load file %v.\n", args[0]))
 			break
 		}
 	default:
