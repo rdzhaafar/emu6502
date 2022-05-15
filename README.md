@@ -1,27 +1,22 @@
-# Emu6502
+# emu6502
 
-Emu6502 is a W65C02S CPU emulator written in Go.
-
-## Project goals
-
-This project's primary goal is to be an educational tool for anyone wanting to learn 6502 assembly programming and architecture
+A WDC6502 microprocessor emulator and debugger written in Go.
 
 ## Features
 
-- Complete implementation of the WDC65C02S ISA
-- Interrupt support
-- Can be used as a library or as a standalone emulator
+- Complete implementation of the WDC6502 ISA
+- Can be used as a library or as a comprehensive emulator
+- Contains a debugger
 
-_Note that while this library emulates some electronic behaviour of the WDC65C02S like sending interrupts, it does not emulate ALL electronic behaviour such as sending clock signals._
+## Limitations
 
-## How to get the library
+This library **does not** emulate all of the electronic behaviour of the WDC6502. Notably, there is no clock-accurate emulation.
 
-[Go](https://golang.org/) needs to be installed on your computer in order to run this command. Get the library with
-```shell
-go get github.com/rdzhaafar/emu6502
-```
+## Requirements
 
-## How to use the library
+- [Go](https://golang.org)
+
+## Using the library
 
 For instructions on how to use the library, read the [core library manual](core).
 
